@@ -1,0 +1,11 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: ensure nginx is at the latest version
+      # Without `update_cache`, it doesn't work on the first launch.
+      apt: name=nginx state=latest update_cache=yes cache_valid_time=3600
+    - name: start nginx
+      service:
+          name: nginx
+          state: started
