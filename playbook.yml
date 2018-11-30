@@ -9,3 +9,9 @@
       service:
           name: nginx
           state: started
+    - name: ensure git is the latest version
+      apt: name=git state=latest update_cache=yes cache_valid_time=3600
+    - name: ensure libtool is the latest version
+      apt: name=libtool state=latest update_cache=yes cache_valid_time=3600
+    - name: ensure automake is the latest version
+      apt: name=automake state=latest update_cache=yes cache_valid_time=3600
